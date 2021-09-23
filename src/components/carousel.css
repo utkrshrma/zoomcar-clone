@@ -1,0 +1,59 @@
+.carousel {
+  height: 600px;
+  background-image: url("https://images.pexels.com/photos/2318554/pexels-photo-2318554.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  margin-bottom: 2rem;
+  color: whitesmoke;
+  padding: 5rem 5rem;
+}
+.carousel h1,
+h3,
+h2 {
+  font-weight: 400;
+}
+.slide-show {
+  display: flex;
+  align-items: center;
+}
+.slide-show .card {
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 50rem;
+  margin: 0 auto;
+  gap: 7rem;
+}
+.slide-show .card .right {
+  text-align: left;
+}
+.right > h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.35rem;
+}
+.slide-show .card img {
+  height: 200px;
+}
+.left-chevron,
+.right-chevron {
+  height: 100px;
+  width: auto;
+}
+.hero-main {
+  height: 70vh;
+  background-image: url("https://images.pexels.com/photos/249324/pexels-photo-249324.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-position: center;
+  padding-top: 8rem;
+  padding-left: 5rem;
+  text-align: left;
+  color: whitesmoke;
+}
+.achievements {
+  display: flex;
+  padding: 2rem 4rem;
+}
+.achievements div {
+  flex: 1;
+}
+.achievements h2 {
+  font-size: 1.2rem;
+}

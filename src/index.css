@@ -1,13 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: whitesmoke;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
+:root {
+  --clr-hot: rgb(51, 65, 79);
+  --clr-cool: rgb(46, 189, 200);
+  --clr-go: rgb(90, 245, 125);
+  --clr-alarm: rgb(232, 48, 213);
+  --clr-logo: hsl(199, 82%, 45%);
+  --clr-title: lightgrey;
+  --clr-surface: hsl(0, 0%, 100%);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Urbanist", sans-serif;
+  font-weight: 500;
+  margin: 0;
+}
+
+/*header starts here */
+header {
+  width: 100%;
+  background: var(--clr-hot);
+  position: fixed;
+  z-index: 999;
+  text-align: center;
+}
+
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  background: var(--clr-hot);
+  width: 100%;
+
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+
+li a {
+  text-transform: uppercase;
+  font-family: "Cabin", sans-serif;
+  color: rgb(255, 255, 255);
+}
+
+a:hover {
+  color: var(--clr-title);
+  cursor: pointer;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1, 1);
+}
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: all 0.1s ease-in-out 0.2s;
+}
+
+nav a {
+  opacity: 0;
+  transform: scale(1, 0);
+  transition: opacity 150ms ease-in-out;
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  place-items: center;
+}
+.label-span,
+.label-span::before,
+.label-span::after {
+  height: 4px;
+  width: 30px;
+  border: 1px solid black;
+  background: black;
+  border-radius: 20%;
+}
+.label-span::before,
+.label-span::after {
+  position: absolute;
+  content: "";
+  left: 0px;
+}
+.label-span::before {
+  top: 30px;
+}
+.label-span::after {
+  bottom: 30px;
+}
+.label-span:hover,
+.label-span:hover::after,
+.label-span:hover::before {
+  cursor: pointer;
+  border: 1px solid var(--clr-title);
+  background: var(--clr-title);
+}
+.logo h1 {
+  color: white;
+}
+
+@media screen and (min-width: 800px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+  nav {
+    all: unset;
+    grid-column: 3/4;
+    display: flex;
+    justify-content: flex-end;
+    place-items: center;
+  }
+  .logo {
+    grid-column: 2/3;
+  }
+  nav li {
+    margin-left: 3em;
+    margin-bottom: 0;
+  }
+  nav ul {
+    display: flex;
+    justify-content: flex-end;
+  }
+  nav a {
+    opacity: 1;
+    position: relative;
+  }
+  nav a::before {
+    position: absolute;
+    content: "";
+    height: 4px;
+    width: 100%;
+    top: -10px;
+    right: 0;
+    background: black;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+  nav a:hover::before {
+    transform: scale(1, 1);
+  }
+}
+.content {
+  height: 90vh;
+  background: url("https://images.pexels.com/photos/35967/mini-cooper-auto-model-vehicle.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+.content h1 {
+  margin: 0;
+  font-size: 2.75rem;
+  font-weight: 400;
+}
+.content h2 {
+  font-weight: 300;
+  margin-top: 0.5rem;
+}
+i {
+  color: black;
+}
+.pwd {
+  position: relative;
+  width: 40vw;
+}
+.pwd input {
+  width: 100%;
+  font-size: 25px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 12px;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.pwd i {
+  color: black;
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 15px;
+  padding: 5px;
+  position: absolute;
+  right: -5px;
+  top: 20%;
+}
+input,
+input::-webkit-input-placeholder {
+  font-size: smaller;
+}
+.advantages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem 0;
+}
+.advantages h1 {
+  margin-bottom: 0.5rem;
+}
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 0px;
+  row-gap: 10px;
+  width: 800px;
+  position: relative;
+  right: 50px;
+}
+@media screen and (max-width: 800px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
 }
